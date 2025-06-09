@@ -1,4 +1,4 @@
-# MusicBuddy - Setup and Usage Guide
+# Mood Tunes - Setup and Usage Guide
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
@@ -10,7 +10,7 @@
 
 ## Prerequisites
 
-Before running MusicBuddy, ensure you have the following installed:
+Before running Mood Tunes, ensure you have the following installed:
 - Java Development Kit (JDK) 17 or later
 - MySQL Server 8.0 or later
 - Maven 3.6 or later
@@ -97,7 +97,7 @@ Before running MusicBuddy, ensure you have the following installed:
 
 1. **Create Gmail Account**
    - Create a new Gmail account or use an existing one
-   - Current email: musicapp258@gmail.com (change this to your email)
+   - Current email: moodtunes2@gmail.com (change this to your email)
 
 2. **Enable 2-Step Verification**
    - Go to Google Account settings
@@ -188,7 +188,7 @@ Before running MusicBuddy, ensure you have the following installed:
 If you encounter any issues not covered here:
 1. Check the application logs
 2. Verify all configurations
-3. Contact support at musicapp258@gmail.com
+3. Contact support at moodtunes2@gmail.com
 
 ---
 
