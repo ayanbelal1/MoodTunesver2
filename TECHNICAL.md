@@ -95,8 +95,6 @@ mvn javafx:run
 src/
 ├── main/
 │   ├── java/
-│   │   └── com/
-│   │       └── musicapp/
 │   │           ├── controllers/    # UI Controllers
 │   │           ├── database/       # Data Access Objects
 │   │           ├── models/         # Data Models
