@@ -126,14 +126,14 @@ Before running Mood Tunes, ensure you have the following installed:
 1. **Clone or Download the Project**
    ```bash
    git clone <repository-url>
-   cd musicbuddy
+   cd moodtunes
    ```
 
 2. **Update Database Configuration**
    - Open `src/main/java/com/musicapp/database/DatabaseConnection.java`
    - Update the following constants with your MySQL credentials:
      ```java
-     private static final String URL = "jdbc:mysql://localhost:3306/musicbuddy";
+     private static final String URL = "jdbc:mysql://localhost:3306/moodtunes";
      private static final String USER = "musicapp";
      private static final String PASSWORD = "your_password_here";
      ```
