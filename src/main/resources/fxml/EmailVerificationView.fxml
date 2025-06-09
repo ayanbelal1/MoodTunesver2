@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.EmailVerificationController"
+      spacing="20"
+      alignment="CENTER"
+      styleClass="auth-container">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <FontIcon iconLiteral="fas-envelope" iconSize="48" styleClass="auth-icon"/>
+    
+    <Label text="Email Verification" styleClass="auth-title"/>
+    <Label text="Please verify your email address to complete registration" styleClass="auth-subtitle"/>
+
+    <VBox spacing="10" alignment="CENTER" maxWidth="300">
+        <Label fx:id="emailLabel" text="Verification code sent to: " styleClass="info-text"/>
+        
+        <TextField fx:id="otpField" promptText="Enter 6-digit OTP" styleClass="auth-input"/>
+        
+        <Label fx:id="timerLabel" text="Code expires in: 5:00" styleClass="timer-text"/>
+        
+        <Button fx:id="verifyButton" text="Verify Email" 
+                onAction="#handleVerify" 
+                styleClass="primary-button" 
+                maxWidth="Infinity"/>
+        
+        <HBox spacing="5" alignment="CENTER">
+            <Label text="Didn't receive the code?" styleClass="hint-text"/>
+            <Button fx:id="resendButton" text="Resend" 
+                    onAction="#handleResend" 
+                    styleClass="link-button"/>
+        </HBox>
+        
+        <Label fx:id="statusLabel" styleClass="status-label" wrapText="true"/>
+    </VBox>
+</VBox> 

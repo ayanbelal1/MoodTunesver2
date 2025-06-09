@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.RegisterController"
+      spacing="20"
+      alignment="CENTER"
+      styleClass="auth-container">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <FontIcon iconLiteral="fas-user-plus" iconSize="48" styleClass="auth-icon"/>
+    
+    <Label text="Create Account" styleClass="auth-title"/>
+    <Label text="Join MusicApp to start listening" styleClass="auth-subtitle"/>
+
+    <VBox spacing="15" alignment="CENTER" maxWidth="300">
+        <TextField fx:id="usernameField" 
+                  promptText="Username" 
+                  styleClass="auth-input"/>
+        
+        <TextField fx:id="emailField" 
+                  promptText="Email" 
+                  styleClass="auth-input"/>
+        
+        <PasswordField fx:id="passwordField" 
+                      promptText="Password" 
+                      styleClass="auth-input"/>
+        
+        <PasswordField fx:id="confirmPasswordField" 
+                      promptText="Confirm Password" 
+                      styleClass="auth-input"/>
+        
+        <Label fx:id="errorLabel" 
+               styleClass="error-label" 
+               wrapText="true"/>
+        
+        <Button fx:id="registerButton" 
+                text="Create Account" 
+                onAction="#handleRegister" 
+                styleClass="primary-button" 
+                maxWidth="Infinity"/>
+        
+        <HBox spacing="5" alignment="CENTER">
+            <Label text="Already have an account?" styleClass="hint-text"/>
+            <Hyperlink text="Log in" onAction="#handleLoginLink"/>
+        </HBox>
+    </VBox>
+</VBox> 

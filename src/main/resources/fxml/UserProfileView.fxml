@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.UserProfileController"
+      spacing="20.0"
+      styleClass="profile-view">
+    
+    <padding>
+        <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+    </padding>
+    
+    <!-- Header section -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <FontIcon iconLiteral="fas-user-circle" iconSize="48" styleClass="profile-icon"/>
+        <VBox spacing="8">
+            <Label text="User Profile" styleClass="view-title"/>
+            <Label text="Manage your account settings and preferences" styleClass="description-text"/>
+        </VBox>
+    </HBox>
+    
+    <!-- Profile Form -->
+    <GridPane hgap="15" vgap="15">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100" prefWidth="150"/>
+            <ColumnConstraints minWidth="200" prefWidth="300"/>
+        </columnConstraints>
+        
+        <!-- Username -->
+        <Label text="Username:" styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="usernameField" promptText="Enter username" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <!-- Email -->
+        <Label text="Email:" styleClass="field-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <HBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <TextField fx:id="emailField" HBox.hgrow="ALWAYS" promptText="Enter email"/>
+            <Button fx:id="sendOTPButton" text="Send OTP" onAction="#handleSendOTP" styleClass="secondary-button"/>
+        </HBox>
+        
+        <!-- OTP -->
+        <Label text="OTP:" styleClass="field-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <HBox spacing="10" GridPane.rowIndex="2" GridPane.columnIndex="1">
+            <TextField fx:id="otpField" promptText="Enter OTP" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="verifyOTPButton" text="Verify OTP" onAction="#handleVerifyOTP" styleClass="secondary-button"/>
+        </HBox>
+        
+        <!-- Current Password -->
+        <Label text="Current Password:" styleClass="field-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <PasswordField fx:id="currentPasswordField" promptText="Enter current password" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        
+        <!-- New Password -->
+        <Label text="New Password:" styleClass="field-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <PasswordField fx:id="newPasswordField" promptText="Enter new password" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        
+        <!-- Confirm Password -->
+        <Label text="Confirm Password:" styleClass="field-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <PasswordField fx:id="confirmPasswordField" promptText="Confirm new password" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        
+        <!-- Profile Picture -->
+        <Label text="Profile Picture:" styleClass="field-label" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <HBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="1">
+            <ImageView fx:id="profileImageView" fitHeight="100" fitWidth="100" preserveRatio="true"/>
+            <Button fx:id="uploadButton" onAction="#handleUploadImage" text="Upload Image" styleClass="secondary-button"/>
+        </HBox>
+        
+        <!-- Theme Preference -->
+        <Label text="Theme:" styleClass="field-label" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="themeComboBox" promptText="Select theme" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+        
+        <!-- Notification Settings -->
+        <Label text="Notifications:" styleClass="field-label" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+        <VBox spacing="10" GridPane.rowIndex="8" GridPane.columnIndex="1">
+            <CheckBox fx:id="emailNotificationsCheckbox" text="Email Notifications"/>
+            <CheckBox fx:id="pushNotificationsCheckbox" text="Push Notifications"/>
+        </VBox>
+    </GridPane>
+    
+    <!-- Action Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="cancelButton" onAction="#handleCancel" text="Cancel" styleClass="secondary-button"/>
+        <Button fx:id="saveButton" onAction="#handleSave" text="Save Changes" styleClass="primary-button"/>
+    </HBox>
+    
+    <!-- Status Message -->
+    <Label fx:id="statusLabel" styleClass="status-label" wrapText="true"/>
+</VBox> 

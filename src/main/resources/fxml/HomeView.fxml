@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import com.jfoenix.controls.*?>
+<?import java.net.URL?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.musicapp.controllers.HomeViewController"
+      styleClass="home-view"
+      spacing="20">
+
+    <!-- Header Section -->
+    <HBox alignment="CENTER_LEFT" spacing="20" styleClass="welcome-section">
+        <Label text="Your Music Library" styleClass="welcome-text"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button onAction="#selectMusicFiles" styleClass="folder-button">
+            <graphic>
+                <HBox spacing="10" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-file-audio" iconSize="24"/>
+                    <Label text="Add Files" textFill="WHITE"/>
+                </HBox>
+            </graphic>
+        </Button>
+        <Button onAction="#selectMusicFolder" styleClass="folder-button">
+            <graphic>
+                <HBox spacing="10" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-folder-open" iconSize="24"/>
+                    <Label text="Select Folder" textFill="WHITE"/>
+                </HBox>
+            </graphic>
+        </Button>
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+    </HBox>
+
+    <!-- Music List Section -->
+    <VBox VBox.vgrow="ALWAYS" styleClass="music-section">
+        <ListView fx:id="songListView" VBox.vgrow="ALWAYS" styleClass="song-list"/>
+    </VBox>
+
+    <!-- Player Controls Section -->
+    <HBox styleClass="player-controls" alignment="CENTER" spacing="20">
+        <Button onAction="#playPrevious" styleClass="control-button">
+            <graphic>
+                <FontIcon iconLiteral="fas-step-backward" iconSize="24"/>
+            </graphic>
+        </Button>
+
+        <Button fx:id="playPauseButton" onAction="#togglePlayPause" styleClass="play-button">
+            <graphic>
+                <FontIcon fx:id="playPauseIcon" iconLiteral="fas-play" iconSize="32"/>
+            </graphic>
+        </Button>
+
+        <Button onAction="#playNext" styleClass="control-button">
+            <graphic>
+                <FontIcon iconLiteral="fas-step-forward" iconSize="24"/>
+            </graphic>
+        </Button>
+
+        <!-- Progress Bar -->
+        <VBox HBox.hgrow="ALWAYS">
+            <Label fx:id="currentTimeLabel" text="0:00"/>
+            <Slider fx:id="progressSlider" styleClass="progress-slider"/>
+            <Label fx:id="totalTimeLabel" text="0:00"/>
+        </VBox>
+
+        <!-- Volume Control -->
+        <HBox alignment="CENTER" spacing="10">
+            <FontIcon iconLiteral="fas-volume-up" iconSize="16"/>
+            <Slider fx:id="volumeSlider" prefWidth="100" value="100"/>
+        </HBox>
+    </HBox>
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <stylesheets>
+        <URL value="@../styles/home.css"/>
+    </stylesheets>
+</VBox>

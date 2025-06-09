@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.QueueViewController"
+      spacing="10"
+      styleClass="queue-view">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Queue" styleClass="view-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button onAction="#clearQueue" styleClass="danger-button">
+            <graphic>
+                <FontIcon iconLiteral="fas-trash" iconSize="16"/>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Clear Queue"/>
+            </tooltip>
+        </Button>
+    </HBox>
+    
+    <ListView fx:id="queueListView" VBox.vgrow="ALWAYS" styleClass="queue-list">
+        <placeholder>
+            <Label text="Queue is empty" styleClass="placeholder-label"/>
+        </placeholder>
+    </ListView>
+</VBox> 

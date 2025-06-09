@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.SocialViewController"
+      styleClass="social-view">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+    
+    <!-- Search Users Section -->
+    <VBox spacing="10.0">
+        <Label text="Find Users" styleClass="section-title"/>
+        <HBox spacing="10.0">
+            <TextField fx:id="searchUserField" promptText="Search by username or email" 
+                      HBox.hgrow="ALWAYS"/>
+            <Button onAction="#handleSearchUsers" styleClass="primary-button">
+                <graphic>
+                    <FontIcon iconLiteral="fas-search" iconSize="16"/>
+                </graphic>
+            </Button>
+        </HBox>
+        <ListView fx:id="searchResultsListView" prefHeight="200.0" styleClass="user-list"/>
+    </VBox>
+    
+    <!-- Following Section -->
+    <VBox spacing="10.0">
+        <Label text="Following" styleClass="section-title"/>
+        <ListView fx:id="followingListView" prefHeight="200.0" styleClass="user-list"/>
+    </VBox>
+    
+    <!-- Followers Section -->
+    <VBox spacing="10.0">
+        <Label text="Followers" styleClass="section-title"/>
+        <ListView fx:id="followersListView" prefHeight="200.0" styleClass="user-list"/>
+    </VBox>
+    
+    <!-- Shared Playlists Section -->
+    <VBox spacing="10.0">
+        <Label text="Shared With Me" styleClass="section-title"/>
+        <ListView fx:id="sharedPlaylistsListView" prefHeight="200.0" styleClass="playlist-list"/>
+    </VBox>
+</VBox> 

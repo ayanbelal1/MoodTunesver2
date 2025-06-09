@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.effect.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.musicapp.controllers.PlaylistViewController"
+           fitToWidth="true"
+           styleClass="content-scroll">
+           
+    <VBox spacing="30.0">
+        <padding>
+            <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+        </padding>
+        
+        <!-- Playlist header with gradient background -->
+        <StackPane>
+            <Rectangle width="800" height="300" styleClass="playlist-header-bg"/>
+            
+            <HBox spacing="30.0" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+                </padding>
+                
+                <!-- Playlist cover with shadow effect -->
+                <StackPane>
+                    <Rectangle width="240" height="240" styleClass="playlist-cover-bg"/>
+                    <ImageView fx:id="playlistCoverImageView" fitHeight="240.0" fitWidth="240.0" preserveRatio="true">
+                        <effect>
+                            <DropShadow color="rgba(0,0,0,0.5)" radius="20" spread="0.2"/>
+                        </effect>
+                    </ImageView>
+                </StackPane>
+                
+                <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                    <Label text="PLAYLIST" styleClass="playlist-label"/>
+                    <Label fx:id="playlistNameLabel" styleClass="playlist-title" text="Playlist Name"/>
+                    <Label fx:id="playlistDescriptionLabel" styleClass="playlist-description" text="Playlist Description" wrapText="true"/>
+                    <Label fx:id="playlistInfoLabel" styleClass="playlist-info" text="0 songs • 0 min"/>
+                    
+                    <HBox spacing="15.0">
+                        <Button fx:id="playButton" text="Play" onAction="#handlePlayButton" styleClass="primary-button">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-play" iconSize="20" iconColor="WHITE"/>
+                            </graphic>
+                        </Button>
+                        
+                        <Button fx:id="shuffleButton" text="Shuffle" onAction="#handleShuffleButton" styleClass="secondary-button">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-random" iconSize="20" iconColor="WHITE"/>
+                            </graphic>
+                        </Button>
+                        
+                        <Button fx:id="shareButton" text="Share" onAction="#handleShareButton" styleClass="secondary-button">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-share-alt" iconSize="20" iconColor="WHITE"/>
+                            </graphic>
+                        </Button>
+                        
+                        <Button fx:id="editButton" text="Edit" onAction="#handleEditButton" styleClass="secondary-button">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-edit" iconSize="20" iconColor="WHITE"/>
+                            </graphic>
+                        </Button>
+                        
+                        <Button fx:id="deleteButton" text="Delete" onAction="#handleDeleteButton" styleClass="danger-button">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-trash" iconSize="20" iconColor="WHITE"/>
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </HBox>
+        </StackPane>
+        
+        <!-- Songs section -->
+        <VBox spacing="20.0">
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+                <Button fx:id="addSongButton" text="Add Song" onAction="#handleAddSongButton" styleClass="secondary-button">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-plus" iconSize="20" iconColor="WHITE"/>
+                    </graphic>
+                </Button>
+                
+                <Button text="Remove Selected" onAction="#handleRemoveSongButton" styleClass="secondary-button">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-minus" iconSize="20" iconColor="WHITE"/>
+                    </graphic>
+                </Button>
+            </HBox>
+            
+            <TableView fx:id="songsTableView" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="indexColumn" text="#" prefWidth="50.0"/>
+                    <TableColumn fx:id="titleColumn" text="Title" prefWidth="300.0"/>
+                    <TableColumn fx:id="artistColumn" text="Artist" prefWidth="200.0"/>
+                    <TableColumn fx:id="albumColumn" text="Album" prefWidth="200.0"/>
+                    <TableColumn fx:id="durationColumn" text="Duration" prefWidth="100.0"/>
+                </columns>
+                <placeholder>
+                    <Label text="No songs in this playlist" styleClass="placeholder-label"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </VBox>
+</ScrollPane>
