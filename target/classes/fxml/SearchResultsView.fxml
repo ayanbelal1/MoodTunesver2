@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.SearchResultsController"
+      spacing="20.0"
+      styleClass="search-results-view">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+    
+    <!-- Search header -->
+    <Label fx:id="searchQueryLabel" styleClass="view-title" text="Search Results"/>
+    
+    <!-- Results table -->
+    <TableView fx:id="resultsTableView" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="titleColumn" text="Title" prefWidth="250.0"/>
+            <TableColumn fx:id="artistColumn" text="Artist" prefWidth="200.0"/>
+            <TableColumn fx:id="albumColumn" text="Album" prefWidth="200.0"/>
+            <TableColumn fx:id="durationColumn" text="Duration" prefWidth="100.0"/>
+        </columns>
+    </TableView>
+    
+</VBox>

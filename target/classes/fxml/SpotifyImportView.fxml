@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.SpotifyImportController"
+      spacing="20"
+      styleClass="content-view">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Import from Spotify" styleClass="view-title"/>
+    
+    <VBox fx:id="authBox" spacing="10" alignment="CENTER">
+        <Label fx:id="statusLabel" text="Not connected to Spotify"/>
+        <Button fx:id="loginButton" text="Connect to Spotify" onAction="#handleLoginClick"/>
+        <ProgressIndicator fx:id="progressIndicator" visible="false"/>
+    </VBox>
+    
+    <VBox fx:id="playlistBox" spacing="10" visible="false" managed="false">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="Refresh Playlists" onAction="#handleRefreshPlaylists"/>
+            <Button text="Import Selected" onAction="#handleImportSelected"/>
+            <Button text="Remove All Spotify Playlists" onAction="#handleRemoveAllPlaylists" 
+                    style="-fx-base: #ff4444;"/>
+            <CheckBox fx:id="selectAllCheckbox" text="Select All"/>
+        </HBox>
+        
+        <TableView fx:id="playlistTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="selectColumn" text="" prefWidth="50"/>
+                <TableColumn fx:id="nameColumn" text="Playlist Name" prefWidth="200"/>
+                <TableColumn fx:id="tracksColumn" text="Tracks" prefWidth="100"/>
+                <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <ProgressBar fx:id="progressBar" visible="false" prefWidth="Infinity"/>
+    </VBox>
+</VBox> 

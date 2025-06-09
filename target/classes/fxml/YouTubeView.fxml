@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.YouTubeViewController"
+      spacing="20.0"
+      styleClass="youtube-view">
+    
+    <padding>
+        <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+    </padding>
+    
+    <!-- Header section -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <FontIcon iconLiteral="fab-youtube" iconSize="48" styleClass="youtube-icon"/>
+        <VBox spacing="8">
+            <Label text="YouTube Mood Player" styleClass="view-title"/>
+            <Label text="Select a mood and play songs from YouTube based on how you're feeling!" 
+                   styleClass="description-text" wrapText="true"/>
+        </VBox>
+    </HBox>
+    
+    <!-- Controls section -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <Label text="Select Mood:" styleClass="field-label"/>
+        <ComboBox fx:id="moodComboBox" promptText="Choose your mood"/>
+        <Button fx:id="playButton" styleClass="primary-button">
+            <graphic>
+                <HBox spacing="8" alignment="CENTER">
+                    <FontIcon fx:id="playButtonIcon" iconLiteral="fas-play" iconSize="16"/>
+                    <Label text="Play" />
+                </HBox>
+            </graphic>
+        </Button>
+        
+        <HBox spacing="10" HBox.hgrow="ALWAYS" alignment="CENTER">
+            <Button fx:id="previousButton" styleClass="secondary-button">
+                <graphic>
+                    <HBox spacing="8" alignment="CENTER">
+                        <FontIcon iconLiteral="fas-step-backward" iconSize="16"/>
+                        <Label text="Previous" />
+                    </HBox>
+                </graphic>
+            </Button>
+            <Button fx:id="nextButton" styleClass="secondary-button">
+                <graphic>
+                    <HBox spacing="8" alignment="CENTER">
+                        <FontIcon iconLiteral="fas-step-forward" iconSize="16"/>
+                        <Label text="Next" />
+                    </HBox>
+                </graphic>
+            </Button>
+        </HBox>
+    </HBox>
+    
+    <!-- Player section -->
+    <StackPane VBox.vgrow="ALWAYS" styleClass="player-container">
+        <!-- YouTube player -->
+        <WebView fx:id="youtubeWebView" visible="true"/>
+        
+        <!-- Loading indicator -->
+        <VBox fx:id="loadingBox" alignment="CENTER" spacing="20" visible="false" styleClass="loading-box">
+            <ProgressIndicator />
+            <Label fx:id="loadingLabel" text="Loading..." styleClass="status-label"/>
+        </VBox>
+        
+        <!-- Error display -->
+        <VBox fx:id="errorBox" alignment="CENTER" spacing="20" visible="false" styleClass="error-box">
+            <FontIcon iconLiteral="fas-exclamation-circle" iconSize="48" styleClass="error-icon"/>
+            <Label fx:id="errorLabel" styleClass="error-message" wrapText="true" textAlignment="CENTER"/>
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="retryButton" onAction="#handleRetryButton" styleClass="primary-button">
+                    <graphic>
+                        <HBox spacing="8" alignment="CENTER">
+                            <FontIcon iconLiteral="fas-sync" iconSize="16"/>
+                            <Label text="Retry" />
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button fx:id="helpButton" onAction="#handleHelpButton" styleClass="secondary-button">
+                    <graphic>
+                        <HBox spacing="8" alignment="CENTER">
+                            <FontIcon iconLiteral="fas-question-circle" iconSize="16"/>
+                            <Label text="Help" />
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </StackPane>
+</VBox>

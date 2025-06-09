@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.musicapp.controllers.CloudStorageController"
+      spacing="20"
+      styleClass="content-view">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Cloud Storage" styleClass="view-title"/>
+    
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="uploadButton" text="Upload" onAction="#handleUpload">
+                <graphic>
+                    <FontIcon iconLiteral="fas-cloud-upload-alt"/>
+                </graphic>
+            </Button>
+            <Button fx:id="downloadButton" text="Download" onAction="#handleDownload">
+                <graphic>
+                    <FontIcon iconLiteral="fas-cloud-download-alt"/>
+                </graphic>
+            </Button>
+            <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh">
+                <graphic>
+                    <FontIcon iconLiteral="fas-sync"/>
+                </graphic>
+            </Button>
+        </HBox>
+        
+        <ListView fx:id="filesList" VBox.vgrow="ALWAYS"/>
+    </VBox>
+    
+    <ProgressBar fx:id="progressBar" progress="0.0" visible="false" prefWidth="Infinity"/>
+</VBox> 
