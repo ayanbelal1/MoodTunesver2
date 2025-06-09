@@ -1,0 +1,132 @@
+.home-view {
+    -fx-background-color: linear-gradient(to bottom, #121212, #000000);
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.welcome-section {
+    -fx-padding: 20px;
+    -fx-background-color: linear-gradient(to right, rgba(29, 185, 84, 0.3), transparent);
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+}
+
+.welcome-text {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.folder-button {
+    -fx-background-color: #1DB954;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 20px;
+}
+
+.folder-button:hover {
+    -fx-background-color: #1ed760;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 0);
+}
+
+.folder-button .ikonli-font-icon {
+    -fx-fill: white;
+}
+
+.music-section {
+    -fx-padding: 20px 0;
+}
+
+.song-list {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 0;
+}
+
+.song-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+    -fx-text-fill: #b3b3b3;
+    -fx-font-size: 14px;
+}
+
+.song-list .list-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.song-list .list-cell:selected {
+    -fx-background-color: rgba(29, 185, 84, 0.3);
+    -fx-text-fill: white;
+}
+
+.player-controls {
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-alignment: center;
+}
+
+.control-button {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.control-button .ikonli-font-icon {
+    -fx-fill: #b3b3b3;
+}
+
+.control-button:hover .ikonli-font-icon {
+    -fx-fill: white;
+}
+
+.play-button {
+    -fx-background-color: #1DB954;
+    -fx-background-radius: 50%;
+    -fx-min-width: 56px;
+    -fx-min-height: 56px;
+    -fx-max-width: 56px;
+    -fx-max-height: 56px;
+}
+
+.play-button:hover {
+    -fx-background-color: #1ed760;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 0);
+}
+
+.play-button .ikonli-font-icon {
+    -fx-fill: white;
+}
+
+.progress-slider .track {
+    -fx-background-color: #535353;
+    -fx-pref-height: 4px;
+}
+
+.progress-slider .thumb {
+    -fx-background-color: white;
+    -fx-pref-width: 12px;
+    -fx-pref-height: 12px;
+}
+
+.progress-slider:hover .thumb {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0, 0, 0);
+}
+
+.volume-slider .track {
+    -fx-background-color: #535353;
+    -fx-pref-height: 4px;
+}
+
+.volume-slider .thumb {
+    -fx-background-color: white;
+    -fx-pref-width: 12px;
+    -fx-pref-height: 12px;
+}
+
+Label {
+    -fx-text-fill: #b3b3b3;
+    -fx-font-size: 12px;
+}
+
+.ikonli-font-icon {
+    -fx-fill: #b3b3b3;
+} 
